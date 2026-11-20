@@ -1,0 +1,27 @@
+
+name: Silesia GPSD
+version: "0.1.0"
+slug: silesia_gpsd
+description: GPSD server for USB u-blox GNSS receivers
+url: https://github.com/silesialogik-ai/silesia-gpsd
+arch:
+  - aarch64
+init: false
+startup: services
+boot: auto
+uart: true
+udev: true
+usb: true
+devices: []
+ports:
+  2947/tcp: 2947
+ports_description:
+  2947/tcp: GPSD TCP server
+options:
+  device: /dev/serial/by-id/usb-u-blox_AG_-_www.u-blox.com_u-blox_GNSS_receiver-if00
+  baud: 9600
+  gpsdOptions: "-n"
+schema:
+  device: str
+  baud: int
+  gpsdOptions: str
